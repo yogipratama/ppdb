@@ -14,7 +14,7 @@
       <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-6">
-                <div class="mt-5 card border-success mb-3">
+                <div class="mt-5 card border-success">
                     <div class="card-header d-flex justify-content-center bg-transparent border-success">Login</div>
                     <div class="card-body mt-4">
     
@@ -25,9 +25,6 @@
                                 @error('login_gagal')
                                 <div class="alert alert-warning alert-dismissible fade show" role="alert">
                                     <span class="alert-inner--text">{{ $message }}</span>
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
                                 </div>
                                 @enderror
                                 <label for="username" class="col-md-4 col-form-label text-md-right">Username</label>
