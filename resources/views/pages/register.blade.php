@@ -6,7 +6,7 @@
     <div class="breadcrumbs" data-aos="fade-in">
       <div class="container">
         <h2>Register</h2>
-        <p>Apabila belum memiliki akun silhakan register terlebih dahulu</p>
+        <p>Apabila belum memiliki akun silahkan register terlebih dahulu</p>
       </div>
     </div><!-- End Breadcrumbs -->
 
@@ -72,10 +72,15 @@
     
 
     
-                            <div class="mt-4 d-flex justify-content-center">
-                                <button type="submit" class="btn btn-outline-success">
-                                    Register
-                                </button>
+                            <div class="row">
+                                <div class="col-md-4">
+
+                                </div>
+                                <div class="mt-4 col-md-6">
+                                    <button type="submit" class="btn btn-primary px-4">
+                                        Register
+                                    </button>
+                                </div>
                             </div>
                         </form>
                           

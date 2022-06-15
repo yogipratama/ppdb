@@ -6,7 +6,7 @@
     <div class="breadcrumbs" data-aos="fade-in">
       <div class="container">
         <h2>Login</h2>
-        <p>Apabila belum memiliki akun silhakan register terlebih dahulu</p>
+        <p>Apabila belum memiliki akun silahkan register terlebih dahulu</p>
       </div>
     </div><!-- End Breadcrumbs -->
 
@@ -14,8 +14,8 @@
       <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-6">
-                <div class="mt-5 card border-success">
-                    <div class="card-header d-flex justify-content-center bg-transparent border-success">Login</div>
+                <div class="mt-5 card">
+                    <div class="card-header d-flex justify-content-center">Login</div>
                     <div class="card-body mt-4">
     
                         <form action="{{ url('proses_login') }}" method="POST">
@@ -45,13 +45,16 @@
                                     @endif
                                 </div>
                             </div>
-    
+                            
+                            <div class="row">
+                                <div class="col-md-4">
 
-    
-                            <div class="mt-4 d-flex justify-content-center">
-                                <button type="submit" class="btn btn-outline-success">
-                                    Login
-                                </button>
+                                </div>
+                                <div class="mt-4 col-md-6">
+                                    <button type="submit" class="btn btn-primary px-4">
+                                        Login
+                                    </button>
+                                </div>
                             </div>
                         </form>
                           
