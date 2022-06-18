@@ -44,4 +44,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function pendaftaran()
+    {
+        return $this->hasOne(Pendaftaran::class, 'user_id', 'id');
+    }
 }

@@ -11,7 +11,7 @@
   </li><!-- End Dashboard Nav -->
 
   <li class="nav-item">
-    <a class="nav-link collapsed" href="{{ url('pendaftaran')}}">
+    <a class="nav-link collapsed" href="{{ route('pendaftaran.index') }}">
       <i class="bi bi-person"></i>
       <span>Pendaftaran</span>
     </a>

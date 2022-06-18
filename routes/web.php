@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\PendaftaranController;
+use App\Models\Pendaftaran;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -42,6 +44,8 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/siswa', function () {
             return view('pages.siswa.dashboard');
         });
+        Route::resource('pendaftaran', PendaftaranController::class);
+
     });
 });
 
