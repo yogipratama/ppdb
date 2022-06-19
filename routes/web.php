@@ -40,6 +40,11 @@ Route::group(['middleware' => ['auth']], function () {
             return view('pages.admin.dashboard');
         });
         Route::get('/pendaftaran-admin', [PendaftaranController::class, 'view_data_formulir'])->name('pendaftaran.admin');
+        Route::get('/pendaftaran-admin/tidak-lolos', [PendaftaranController::class, 'view_data_formulir2'])->name('pendaftaran.admin2');
+        Route::get('/pendaftaran-admin/lolos', [PendaftaranController::class, 'view_data_formulir3'])->name('pendaftaran.admin3');
+        Route::get('/pendaftaran-admin/{id}', [PendaftaranController::class, 'view_detail_pendaftaran'])->name('pendaftaran.admin.detail');
+        Route::get('/pendaftaran-admin/validasi/{id}', [PendaftaranController::class, 'view_validasi_pendaftaran'])->name('pendaftaran.admin.validasi');
+        Route::put('/pendaftaran-admin/validasi/{id}', [PendaftaranController::class, 'edit_formulir_pendaftaran'])->name('pendaftaran.admin.edit');
     });
     Route::group(['middleware' => ['cek_login:siswa']], function () {
         Route::resource('pendaftaran', PendaftaranController::class);
@@ -47,4 +52,3 @@ Route::group(['middleware' => ['auth']], function () {
 
     });
 });
-

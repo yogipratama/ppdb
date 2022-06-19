@@ -90,7 +90,7 @@ class PendaftaranController extends Controller
         Pendaftaran::create($input);
 
         return redirect()->route('pendaftaran.index')
-                        ->with('success','Product created successfully.');
+                        ->with('success','Formulir created successfully.');
     }
 
     /**
@@ -179,7 +179,7 @@ class PendaftaranController extends Controller
         $pendaftaran->update($input);
 
         return redirect()->route('pendaftaran.index')
-                        ->with('success','Product created successfully.');
+                        ->with('success','Formulir created successfully.');
        
     }
 
@@ -203,9 +203,46 @@ class PendaftaranController extends Controller
 
     public function view_data_formulir()
     {
-        $data = Pendaftaran::latest()->paginate(5);
+        $data = Pendaftaran::all()->where('status_pendaftaran', null);
 
         return view('pages.admin.pendaftaran.index', compact('data'))
+            ->with('i', (request()->input('page', 1) - 1) * 5);
+    }
+
+    public function view_detail_pendaftaran(Pendaftaran $data, $id)
+    {
+        $data = Pendaftaran::all()->find($id);
+        return view('pages.admin.pendaftaran.detail', compact('data'));
+    }
+
+    public function view_validasi_pendaftaran(Pendaftaran $data, $id)
+    {
+        $data = Pendaftaran::all()->find($id);
+        return view('pages.admin.pendaftaran.validasi', compact('data'));
+    }
+
+    public function edit_formulir_pendaftaran(Request $request, $id)
+    {
+        $data = Pendaftaran::find($id);
+
+        $data->status_pendaftaran = $request->status_pendaftaran;
+        $data->save();
+
+        return redirect()->route('pendaftaran.admin')
+                        ->with('success','Formulir created successfully.');
+    }
+    public function view_data_formulir2()
+    {
+        $data = Pendaftaran::all()->where('status_pendaftaran', 'Tidak Lolos');
+
+        return view('pages.admin.pendaftaran.index2', compact('data'))
+            ->with('i', (request()->input('page', 1) - 1) * 5);
+    }
+    public function view_data_formulir3()
+    {
+        $data = Pendaftaran::all()->where('status_pendaftaran', 'Lolos');
+
+        return view('pages.admin.pendaftaran.index3', compact('data'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 }

@@ -4,7 +4,7 @@
 <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Data Pendaftaran Siswa</h1>
+      <h1>Data Siswa Tidak Lolos Berkas</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="index.html">Home</a></li>
@@ -40,9 +40,6 @@
                       <td>{{ $dt->asal_sekolah }}</td>
 
                       <td>
-                        <a href="{{ route('pendaftaran.admin.validasi', $dt->id) }}" class="btn btn-outline-success">
-                          <i class="fas fa-check"> Validasi</i>
-                        </a>
                     
                         <a href="{{ route('pendaftaran.admin.detail', $dt->id) }}" class="btn btn-info">
                           <i class="far fa-eye"> Detail</i>
