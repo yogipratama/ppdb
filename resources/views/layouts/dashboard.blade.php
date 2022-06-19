@@ -12,7 +12,7 @@
   @include('includes.dashboard.style')
 </head>
 
-<body>
+<body class="d-flex flex-column min-vh-100">
 
   @include('includes.dashboard.header')
 

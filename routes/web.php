@@ -39,12 +39,11 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/admin', function () {
             return view('pages.admin.dashboard');
         });
+        Route::get('/pendaftaran-admin', [PendaftaranController::class, 'view_data_formulir'])->name('pendaftaran.admin');
     });
     Route::group(['middleware' => ['cek_login:siswa']], function () {
-        Route::get('/siswa', function () {
-            return view('pages.siswa.dashboard');
-        });
         Route::resource('pendaftaran', PendaftaranController::class);
+        Route::get('/siswa', [PendaftaranController::class, 'view_dashboard'])->name('dashboard');
 
     });
 });

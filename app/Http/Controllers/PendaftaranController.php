@@ -19,8 +19,9 @@ class PendaftaranController extends Controller
         // dd($data);
         return view('pages.siswa.pendaftaran.index', compact('data'));
         
-        
     }
+
+   
 
     /**
      * Show the form for creating a new resource.
@@ -191,5 +192,20 @@ class PendaftaranController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function view_dashboard()
+    {
+        $data = Pendaftaran::all()->where('user_id', Auth::user()->id)->first();
+        // dd($data);
+        return view('pages.siswa.dashboard', compact('data'));
+    }
+
+    public function view_data_formulir()
+    {
+        $data = Pendaftaran::latest()->paginate(5);
+
+        return view('pages.admin.pendaftaran.index', compact('data'))
+            ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 }
