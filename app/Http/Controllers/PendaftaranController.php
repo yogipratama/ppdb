@@ -63,6 +63,7 @@ class PendaftaranController extends Controller
             'pekerjaan_ibu' => 'required',
             'nohp_ibu' => 'required|numeric',
             'asal_sekolah' => 'required',
+            'foto_rapot' => 'required|mimes:pdf',
             'foto_ijazah' => 'required|mimes:pdf',
         ]);
 
@@ -85,6 +86,12 @@ class PendaftaranController extends Controller
             $profileImage = date('YmdHis') . "." . $foto->getClientOriginalExtension();
             $foto->move($destinationPath, $profileImage);
             $input['foto_ijazah'] = "$profileImage";
+        }
+        if ($foto = $request->file('foto_rapot')){
+            $destinationPath = 'img/foto_rapot/';
+            $profileImage = date('YmdHis') . "." . $foto->getClientOriginalExtension();
+            $foto->move($destinationPath, $profileImage);
+            $input['foto_rapot'] = "$profileImage";
         }
 
         Pendaftaran::create($input);
@@ -174,6 +181,14 @@ class PendaftaranController extends Controller
             $input['foto_ijazah'] = "$profileImage";
         } else {
             unset($input['foto_ijazah']);
+        }
+        if ($foto = $request->file('foto_rapot')){
+            $destinationPath = 'img/foto_rapot/';
+            $profileImage = date('YmdHis') . "." . $foto->getClientOriginalExtension();
+            $foto->move($destinationPath, $profileImage);
+            $input['foto_rapot'] = "$profileImage";
+        } else {
+            unset($input['foto_rapot']);
         }
 
         $pendaftaran->update($input);

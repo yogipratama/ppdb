@@ -199,6 +199,15 @@
                                     </div>
 
                                     <div class="form-group mt-3">
+                                        <label for="foto_rapot" class="mb-2">Foto Rapot:</label>
+                                        <input type="file" name="foto_rapot" class="form-control" value="{{ old('foto_rapot') }}">
+                                        <font size="2">*smt 1 - smt 5, ext .pdf</font>
+                                        @if ($errors->has('foto_rapot'))
+                                            <span class="text-danger">{{ $errors->first('foto_rapot') }}</span>
+                                        @endif
+                                    </div>
+
+                                    <div class="form-group mt-3">
                                         <label for="foto_ijazah" class="mb-2">Foto Ijazah:</label>
                                         <input type="file" name="foto_ijazah" class="form-control" value="{{ old('foto_ijazah') }}">
                                         <font size="2">*Depan Belakang, ext .pdf</font>

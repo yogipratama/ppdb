@@ -30,6 +30,7 @@ class Pendaftaran extends Model
         'pekerjaan_ibu',
         'nohp_ibu',
         'asal_sekolah',
+        'foto_rapot',
         'foto_ijazah',
         'status_pendaftaran',
     ];

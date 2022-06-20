@@ -194,6 +194,14 @@
                                     @endif
                                 </div>
 
+                                <div class="form-group">
+                                    <label for="foto_rapot" class="mb-2">Foto Rapot: {{ $pendaftaran->foto_rapot }}</label>
+                                    <input type="file" name="foto_rapot" class="form-control mb-3" value="{{ $pendaftaran->foto_rapot }}">
+                                    @if ($errors->has('foto_rapot'))
+                                        <span class="text-danger">{{ $errors->first('foto_rapot') }}</span>
+                                    @endif
+                               </div>
+
                                <div class="form-group">
                                     <label for="foto_ijazah" class="mb-2">Foto Ijazah: {{ $pendaftaran->foto_ijazah }}</label>
                                     <input type="file" name="foto_ijazah" class="form-control mb-3" value="{{ $pendaftaran->foto_ijazah }}">

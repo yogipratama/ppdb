@@ -34,6 +34,7 @@ class CreatePendaftaranTable extends Migration
             $table->string('pekerjaan_ibu');
             $table->string('nohp_ibu')->nullable();
             $table->string('asal_sekolah');
+            $table->string('foto_rapot');
             $table->string('foto_ijazah');
             $table->string('status_pendaftaran')->nullable();
             $table->timestamps();

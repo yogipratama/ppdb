@@ -153,7 +153,7 @@
                       <div class="card-body profile-card pt-4">
                         <div class="row d-flex justify-content-center">
                           <div class=" d-flex justify-content-center label">Status Pendaftaran</div>
-                          <div class="  mt-4 col-md-8 alert alert-danger" role="alert">{{ $data->status_pendaftaran ?? 'Belum Terverifikasi'}}</div>
+                          <div class="  mt-4 col-md-8 alert alert-danger d-flex justify-content-center" role="alert">{{ $data->status_pendaftaran ?? 'Belum Terverifikasi'}}</div>
                         </div>
                       </div>
                     </div>
