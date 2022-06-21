@@ -24,22 +24,28 @@
               @isset($data)
               
               <section class="section profile pt-4">
+                <div class="alert alert-info" role="alert">
+                  <h4 class="alert-heading">Anda telah mengisi formulir pendaftaran</h4>
+                  <p>Silahkan input nilai rapot</p>
+                  <a href="#" class="btn btn-primary"><b>Input Nilai</b></a>
+                </div>
                 <div class="row">
                   <div class="col-xl-8">
           
                     <div class="card">
+                      
                       <div class="card-body ">
                         <!-- Bordered Tabs -->
-                       
                         <div class="tab-content pt-2">
-          
+                          
                           <div class="tab-pane fade show active profile-overview" id="profile-overview">
+      
                             <div class="row">
                               <div class="col-md-8">
                                 <h5 class="card-title">Data Formulir Pendaftaran</h5>
                               </div>
                               <div class="col-md-4 d-flex justify-content-end align-items-center">
-                                <a href="{{ route('pendaftaran.edit', $data->id ) }}" class="btn btn-primary "><b>Edit Formulir</b></a>
+                                <a href="{{ route('pendaftaran.edit', $data->id ) }}" class="btn btn-secondary "><b>Edit Formulir</b></a>
                               </div>
                             </div>
 

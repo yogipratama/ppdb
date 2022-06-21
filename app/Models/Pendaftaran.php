@@ -39,4 +39,9 @@ class Pendaftaran extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function nilai_rapot()
+    {
+        return $this->hasOne(NilaiRapot::class);
+    }
 }
