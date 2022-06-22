@@ -14,7 +14,7 @@
 </head>
 
 <body>
-
+  @include('sweetalert::alert')
   @include('includes.navbar')
 
   @yield('content')

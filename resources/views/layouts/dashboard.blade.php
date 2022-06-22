@@ -13,7 +13,7 @@
 </head>
 
 <body class="d-flex flex-column min-vh-100">
-
+  @include('sweetalert::alert')
   @include('includes.dashboard.header')
 
   @include('includes.dashboard.sidebar')

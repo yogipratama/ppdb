@@ -16,11 +16,11 @@ class CreateNilaiRapotTable extends Migration
         Schema::create('nilai_rapot', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('pendaftaran_id')->unsigned();
-            $table->integer('bahasa_indonesia');
-            $table->integer('bahasa_inggris');
-            $table->integer('mtk');
-            $table->integer('ipa');
-            $table->integer('total_rata2');
+            $table->decimal('bahasa_indonesia', 5, 2);
+            $table->decimal('bahasa_inggris', 5, 2);
+            $table->decimal('mtk', 5, 2);
+            $table->decimal('ipa', 5, 2);
+            $table->decimal('total_rata2', 5, 2);
             $table->timestamps();
 
             $table->foreign('pendaftaran_id')->references('id')->on('pendaftaran')

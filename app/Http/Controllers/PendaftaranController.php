@@ -105,7 +105,7 @@ class PendaftaranController extends Controller
         Pendaftaran::create($input);
 
         return redirect()->route('pendaftaran.index')
-                        ->with('success','Formulir created successfully.');
+                        ->with('success','Formulir pendaftaran berhasil dibuat!');
     }
 
     /**
@@ -202,7 +202,7 @@ class PendaftaranController extends Controller
         $pendaftaran->update($input);
 
         return redirect()->route('pendaftaran.index')
-                        ->with('success','Formulir created successfully.');
+                        ->with('success','Formulir pendaftaran berhasil diperbarui!');
        
     }
 
@@ -252,7 +252,7 @@ class PendaftaranController extends Controller
         $data->save();
 
         return redirect()->route('pendaftaran.admin')
-                        ->with('success','Formulir created successfully.');
+                        ->with('success','Status validasi siswa berhasil dibuat!');
     }
     public function view_data_formulir2()
     {
@@ -345,6 +345,6 @@ class PendaftaranController extends Controller
         );
         
         return redirect()->route('pendaftaran.index')
-                        ->with('success','Formulir created successfully.');
+                        ->with('success','Pemasukkan nilai rapot berhasil dibuat!');
     }
 }

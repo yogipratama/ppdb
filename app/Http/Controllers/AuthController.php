@@ -64,11 +64,17 @@ class AuthController extends Controller
             'username' => 'required|min:4|max:12|unique:users',
             'password' => 'required|min:6|max:16',
         ]);
-           
-        $data = $request->all();
-        $check = $this->create($data);
-         
-        return redirect('login')->withSuccess('Selamat Anda berhasil mendaftar akun!');
+
+        try {
+            $data = $request->all();
+            $check = $this->create($data);
+
+            return redirect()->route('login')
+                ->with('success', 'Selamat Anda berhasil mendaftar akun!');
+        } catch (\Exception $e){
+            return redirect()->back()
+                ->with('error', 'Gagal Mendaftar akun!');
+        }
     }
 
     public function create(array $data)

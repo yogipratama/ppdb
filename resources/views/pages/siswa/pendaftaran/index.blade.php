@@ -139,7 +139,7 @@
                             </div>
 
                             @isset($nilai)
-                              <h5 class="card-title">Nilai Rata-Rata Rapot</h5>
+                              <h5 class="card-title">Nilai Rata-Rata Rapot Semester 1 - Semester 5</h5>
 
 
                               <div class="row">
@@ -163,7 +163,7 @@
                               </div>
 
                               <div class="row">
-                                <div class="col-lg-4 col-md-4 label">Total</div>
+                                <div class="col-lg-4 col-md-4 label">Total Rata-Rata</div>
                                 <div class="col-lg-8 col-md-8">{{ $nilai->total_rata2}}</div>
                               </div>
                             @endisset
