@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\NilaiRapot;
 use App\Models\Pendaftaran;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class PendaftaranController extends Controller
 {
@@ -16,7 +19,12 @@ class PendaftaranController extends Controller
     public function index()
     {
         $data = Pendaftaran::all()->where('user_id', Auth::user()->id)->first();
-        // dd($data);
+
+        if(isset($data)) {
+            $nilai = NilaiRapot::all()->where('pendaftaran_id', $data->id)->first();
+            return view('pages.siswa.pendaftaran.index', compact('data', 'nilai'));
+        }
+
         return view('pages.siswa.pendaftaran.index', compact('data'));
         
     }
@@ -259,5 +267,84 @@ class PendaftaranController extends Controller
 
         return view('pages.admin.pendaftaran.index3', compact('data'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
+    }
+    public function view_input_nilai(Pendaftaran $data, $id)
+    {
+        $data = Pendaftaran::all()->find($id);
+        return view('pages.siswa.pendaftaran.inputnilai',compact('data'));
+    }
+    public function input_nilai(Request $request)
+    {
+        $request->validate([
+            'pendaftaran_id' => 'required',
+            'mtk1' => 'required|numeric|min:1|max:100',
+            'mtk2' => 'required|numeric|min:1|max:100',
+            'mtk3' => 'required|numeric|min:1|max:100',
+            'mtk4' => 'required|numeric|min:1|max:100',
+            'mtk5' => 'required|numeric|min:1|max:100',
+
+            'ipa1' => 'required|numeric|min:1|max:100',
+            'ipa2' => 'required|numeric|min:1|max:100',
+            'ipa3' => 'required|numeric|min:1|max:100',
+            'ipa4' => 'required|numeric|min:1|max:100',
+            'ipa5' => 'required|numeric|min:1|max:100',
+
+            'bind1' => 'required|numeric|min:1|max:100',
+            'bind2' => 'required|numeric|min:1|max:100',
+            'bind3' => 'required|numeric|min:1|max:100',
+            'bind4' => 'required|numeric|min:1|max:100',
+            'bind5' => 'required|numeric|min:1|max:100',
+
+            'bing1' => 'required|numeric|min:1|max:100',
+            'bing2' => 'required|numeric|min:1|max:100',
+            'bing3' => 'required|numeric|min:1|max:100',
+            'bing4' => 'required|numeric|min:1|max:100',
+            'bing5' => 'required|numeric|min:1|max:100',
+        ]);
+        $mtk1 = $request->mtk1;
+        $mtk2 = $request->mtk2;
+        $mtk3 = $request->mtk3;
+        $mtk4 = $request->mtk4;
+        $mtk5 = $request->mtk5;
+
+        $ipa1 = $request->ipa1;
+        $ipa2 = $request->ipa2;
+        $ipa3 = $request->ipa3;
+        $ipa4 = $request->ipa4;
+        $ipa5 = $request->ipa5;
+
+        $bind1 = $request->bind1;
+        $bind2 = $request->bind2;
+        $bind3 = $request->bind3;
+        $bind4 = $request->bind4;
+        $bind5 = $request->bind5;
+
+        $bing1 = $request->bing1;
+        $bing2 = $request->bing2;
+        $bing3 = $request->bing3;
+        $bing4 = $request->bing4;
+        $bing5 = $request->bing5;
+
+        $rata2_mtk = ($mtk1 + $mtk2 + $mtk3 +$mtk4 + $mtk5) / 5;
+        $rata2_ipa = ($ipa1 + $ipa2 + $ipa3 +$ipa4 + $ipa5) / 5;
+        $rata2_bind = ($bind1 + $bind2 + $bind3 +$bind4 + $bind5) / 5;
+        $rata2_bing = ($bing1 + $bing2 + $bing3 +$bing4 + $bing5) / 5;
+        $total = ($rata2_mtk + $rata2_ipa + $rata2_bind + $rata2_bing) / 4;
+
+        DB::table('nilai_rapot')->insert(
+            [
+                'pendaftaran_id' => $request->pendaftaran_id,
+                'bahasa_indonesia' => $rata2_bind,
+                'bahasa_inggris' => $rata2_bing,
+                'mtk' => $rata2_mtk,
+                'ipa' => $rata2_ipa,
+                'total_rata2' => $total,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ]
+        );
+        
+        return redirect()->route('pendaftaran.index')
+                        ->with('success','Formulir created successfully.');
     }
 }

@@ -24,11 +24,13 @@
               @isset($data)
               
               <section class="section profile pt-4">
-                <div class="alert alert-info" role="alert">
-                  <h4 class="alert-heading">Anda telah mengisi formulir pendaftaran</h4>
-                  <p>Silahkan input nilai rapot</p>
-                  <a href="#" class="btn btn-primary"><b>Input Nilai</b></a>
-                </div>
+                  @empty($nilai)
+                    <div class="alert alert-info" role="alert">
+                      <h4 class="alert-heading">Anda telah mengisi formulir pendaftaran</h4>
+                      <p>Silahkan input nilai rapot</p>
+                      <a href="{{ route('input.nilai.siswa', $data->id) }}" class="btn btn-primary"><b>Input Nilai</b></a>
+                    </div>
+                  @endempty
                 <div class="row">
                   <div class="col-xl-8">
           
@@ -136,6 +138,35 @@
                               <div class="col-lg-8 col-md-8">{{ $data->nohp_ibu}}</div>
                             </div>
 
+                            @isset($nilai)
+                              <h5 class="card-title">Nilai Rata-Rata Rapot</h5>
+
+
+                              <div class="row">
+                                <div class="col-lg-4 col-md-4 label">Bahasa Indonesia</div>
+                                <div class="col-lg-8 col-md-8">{{ $nilai->bahasa_indonesia}}</div>
+                              </div>
+
+                              <div class="row">
+                                <div class="col-lg-4 col-md-4 label">Matematika</div>
+                                <div class="col-lg-8 col-md-8">{{ $nilai->mtk}}</div>
+                              </div>
+
+                              <div class="row">
+                                <div class="col-lg-4 col-md-4 label">Ilmu Pengetahuan Alam</div>
+                                <div class="col-lg-8 col-md-8">{{ $nilai->ipa}}</div>
+                              </div>
+
+                              <div class="row">
+                                <div class="col-lg-4 col-md-4 label">Bahasa Inggris</div>
+                                <div class="col-lg-8 col-md-8">{{ $nilai->bahasa_inggris}}</div>
+                              </div>
+
+                              <div class="row">
+                                <div class="col-lg-4 col-md-4 label">Total</div>
+                                <div class="col-lg-8 col-md-8">{{ $nilai->total_rata2}}</div>
+                              </div>
+                            @endisset
                           </div>
           
                         </div><!-- End Bordered Tabs -->

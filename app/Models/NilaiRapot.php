@@ -18,6 +18,8 @@ class NilaiRapot extends Model
         'mtk',
         'ipa',
         'total_rata2',
+        'created_at',
+        'updated_at',
     ];
 
     public function pendaftaran()

@@ -49,8 +49,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::group(['middleware' => ['cek_login:siswa']], function () {
         Route::resource('pendaftaran', PendaftaranController::class);
         Route::get('/siswa', [PendaftaranController::class, 'view_dashboard'])->name('dashboard');
-        Route::get('/inputnilai', function () {
-            return view('pages.siswa.pendaftaran.inputnilai');
-        });
+        Route::get('/pendaftaran/inputnilai/{id}', [PendaftaranController::class, 'view_input_nilai'])->name('input.nilai.siswa');
+        Route::post('/pendaftaran/inputnilai/{id}', [PendaftaranController::class, 'input_nilai'])->name('input.nilai');
     });
 });
