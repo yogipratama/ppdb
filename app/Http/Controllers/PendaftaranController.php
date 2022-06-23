@@ -235,6 +235,10 @@ class PendaftaranController extends Controller
     public function view_detail_pendaftaran(Pendaftaran $data, $id)
     {
         $data = Pendaftaran::all()->find($id);
+        if(isset($data)) {
+            $nilai = NilaiRapot::all()->where('pendaftaran_id', $data->id)->first();
+            return view('pages.admin.pendaftaran.detail', compact('data', 'nilai'));
+        }
         return view('pages.admin.pendaftaran.detail', compact('data'));
     }
 
@@ -345,7 +349,7 @@ class PendaftaranController extends Controller
         );
         
         return redirect()->route('pendaftaran.index')
-                        ->with('success','Pemasukkan nilai rapot berhasil dibuat!');
+                        ->with('success','Pengisian nilai rapot berhasil dibuat!');
     }
 
     public function download_foto_akte($nama_foto)
@@ -364,5 +368,14 @@ class PendaftaranController extends Controller
     {
         $path = public_path('img/foto_ijazah/'. $nama_foto);
         return response()->download($path);
+    }
+
+    public function jumlah_pendaftar()
+    {
+        $data1 = Pendaftaran::all()->count();
+        $data3 = Pendaftaran::all()->where('status_pendaftaran', 'Lolos')->count();
+        $data2 = Pendaftaran::all()->where('status_pendaftaran', 'Tidak Lolos')->count();
+
+        return view('pages.admin.dashboard',compact('data1', 'data2', 'data3'));
     }
 }

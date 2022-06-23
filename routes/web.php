@@ -36,9 +36,7 @@ Route::post('/proses_registrasi', [AuthController::class, 'proses_registrasi'])-
 
 Route::group(['middleware' => ['auth']], function () {
     Route::group(['middleware' => ['cek_login:admin']], function () {
-        Route::get('/admin', function () {
-            return view('pages.admin.dashboard');
-        });
+        Route::get('/admin', [PendaftaranController::class, 'jumlah_pendaftar'])->name('dashboard.admin');
         Route::get('/pendaftaran-admin', [PendaftaranController::class, 'view_data_formulir'])->name('pendaftaran.admin');
         Route::get('/pendaftaran-admin/tidak-lolos', [PendaftaranController::class, 'view_data_formulir2'])->name('pendaftaran.admin2');
         Route::get('/pendaftaran-admin/lolos', [PendaftaranController::class, 'view_data_formulir3'])->name('pendaftaran.admin3');

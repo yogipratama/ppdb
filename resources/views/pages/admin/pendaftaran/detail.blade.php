@@ -134,6 +134,35 @@
                               <div class="col-lg-8 col-md-8">{{ $data->nohp_ibu}}</div>
                             </div>
 
+                            @isset($nilai)
+                            <h5 class="card-title">Nilai Rata-Rata Rapot Semester 1 - Semester 5</h5>
+
+
+                            <div class="row">
+                              <div class="col-lg-4 col-md-4 label">Bahasa Indonesia</div>
+                              <div class="col-lg-8 col-md-8">{{ $nilai->bahasa_indonesia}}</div>
+                            </div>
+
+                            <div class="row">
+                              <div class="col-lg-4 col-md-4 label">Matematika</div>
+                              <div class="col-lg-8 col-md-8">{{ $nilai->mtk}}</div>
+                            </div>
+
+                            <div class="row">
+                              <div class="col-lg-4 col-md-4 label">Ilmu Pengetahuan Alam</div>
+                              <div class="col-lg-8 col-md-8">{{ $nilai->ipa}}</div>
+                            </div>
+
+                            <div class="row">
+                              <div class="col-lg-4 col-md-4 label">Bahasa Inggris</div>
+                              <div class="col-lg-8 col-md-8">{{ $nilai->bahasa_inggris}}</div>
+                            </div>
+
+                            <div class="row">
+                              <div class="col-lg-4 col-md-4 label">Total Rata-Rata</div>
+                              <div class="col-lg-8 col-md-8">{{ $nilai->total_rata2}}</div>
+                            </div>
+                          @endisset
                           </div>
           
                         </div><!-- End Bordered Tabs -->
