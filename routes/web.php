@@ -45,6 +45,9 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/pendaftaran-admin/{id}', [PendaftaranController::class, 'view_detail_pendaftaran'])->name('pendaftaran.admin.detail');
         Route::get('/pendaftaran-admin/validasi/{id}', [PendaftaranController::class, 'view_validasi_pendaftaran'])->name('pendaftaran.admin.validasi');
         Route::put('/pendaftaran-admin/validasi/{id}', [PendaftaranController::class, 'edit_formulir_pendaftaran'])->name('pendaftaran.admin.edit');
+        Route::get('/pendaftaran-admin/download-akte/{nama_foto}', [PendaftaranController::class, 'download_foto_akte'])->name('download.foto.akte');
+        Route::get('/pendaftaran-admin/download-rapot/{nama_foto}', [PendaftaranController::class, 'download_rapot'])->name('download.rapot');
+        Route::get('/pendaftaran-admin/download-ijazah/{nama_foto}', [PendaftaranController::class, 'download_ijazah'])->name('download.ijazah');
     });
     Route::group(['middleware' => ['cek_login:siswa']], function () {
         Route::resource('pendaftaran', PendaftaranController::class);

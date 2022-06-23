@@ -55,7 +55,7 @@
                                 <label for="agama" class="mb-2">Agama:</label>
                                 <select id="agama" name="agama" class="form-control mb-3" required>
                                     <option value="">-- Pilih --</option>
-                                    <option value="Islam">islam</option>
+                                    <option value="Islam">Islam</option>
                                     <option value="Kristen">Kristen</option>
                                     <option value="Katolik">Katolik</option>
                                     <option value="Hindu">Hindu</option>

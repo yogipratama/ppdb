@@ -347,4 +347,22 @@ class PendaftaranController extends Controller
         return redirect()->route('pendaftaran.index')
                         ->with('success','Pemasukkan nilai rapot berhasil dibuat!');
     }
+
+    public function download_foto_akte($nama_foto)
+    {
+        $path = public_path('img/foto_akte/'. $nama_foto);
+        return response()->download($path);
+    }
+
+    public function download_rapot($nama_foto)
+    {
+        $path = public_path('img/foto_rapot/'. $nama_foto);
+        return response()->download($path);
+    }
+
+    public function download_ijazah($nama_foto)
+    {
+        $path = public_path('img/foto_ijazah/'. $nama_foto);
+        return response()->download($path);
+    }
 }

@@ -91,7 +91,7 @@
                                     <label for="foto" class="mb-2">Foto: {{ $pendaftaran->foto }}</label>
                                     <input type="file" name="foto" class="form-control mb-3">
                                     
-                                    <img src="/img/foto_siswa/{{ $pendaftaran->foto }}" width="250px">
+                                    <img src="{{ asset('/img/foto_siswa/'. $pendaftaran->foto) }}" width="250px">
                                     @if ($errors->has('foto'))
                                         <span class="text-danger">{{ $errors->first('foto') }}</span>
                                     @endif
@@ -100,7 +100,7 @@
                                 <div class="form-group">
                                     <label for="foto_akte" class="mb-2">Foto Akte: {{ $pendaftaran->foto_akte }}</label>
                                     <input type="file" name="foto_akte" class="form-control mb-3" value="{{ $pendaftaran->foto_akte }}">
-                                    <img src="/img/foto_akte/{{ $pendaftaran->foto_akte }}" width="250px">
+                                    <img src="{{ asset('/img/foto_akte/'. $pendaftaran->foto_akte) }}" width="250px">
                                     @if ($errors->has('foto_akte'))
                                         <span class="text-danger">{{ $errors->first('foto_akte') }}</span>
                                     @endif

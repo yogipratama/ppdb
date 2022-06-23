@@ -28,7 +28,7 @@
                                 <div class="card-body">
                                     <div class="form-group">
                                         <label for="nama" class="mb-2">Nama Lengkap:</label>
-                                        <input type="text" name="nama_siswa" class="form-control mb-3" value="{{ Auth::user()->name }}">
+                                        <input type="text" name="nama_siswa" class="form-control mb-3" value="{{ old('name') }}">
                                         @if ($errors->has('name'))
                                             <span class="text-danger">{{ $errors->first('name') }}</span>
                                         @endif
@@ -36,7 +36,7 @@
 
                                     <div class="form-group">
                                         <label for="nisn" class="mb-2">NISN:</label>
-                                        <input type="number" name="nisn" class="form-control mb-3" value="{{ Auth::user()->nisn }}">
+                                        <input type="number" name="nisn" class="form-control mb-3" value="{{ old('nisn') }}">
                                         @if ($errors->has('nisn'))
                                             <span class="text-danger">{{ $errors->first('nisn') }}</span>
                                         @endif
@@ -98,7 +98,7 @@
                                         <label for="agama" class="mb-2">Agama:</label>
                                         <select id="agama" name="agama" class="form-control mb-3" value="{{ old('agama') }}">
                                             <option value="">-- Pilih --</option>
-                                            <option value="Islam">islam</option>
+                                            <option value="Islam">Islam</option>
                                             <option value="Kristen">Kristen</option>
                                             <option value="Katolik">Katolik</option>
                                             <option value="Hindu">Hindu</option>

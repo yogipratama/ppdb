@@ -74,7 +74,7 @@
           
                             <div class="row">
                               <div class="col-lg-4 col-md-4 label">Tanggal Lahir</div>
-                              <div class="col-lg-8 col-md-8">{{ $data->tanggal_lahir}}</div>
+                              <div class="col-lg-8 col-md-8">{{ \Carbon\Carbon::create($data->tanggal_lahir)->translatedFormat('d F Y') }}</div>
                             </div>
           
                             <div class="row">
@@ -159,15 +159,15 @@
                           <h3 class=" d-flex justify-content-center label">Download Berkas</h3>
                           <div class="row mt-3">
                             <div class="col-lg-7 col-md-4 label d-flex align-items-center">Akte Kelahiran</div>
-                            <div class="col-lg-5 col-md-8"><a href="/img/foto_akte/{{ $data->foto_akte }}" download="{{ $data->foto_akte }}" class="btn btn-primary">Download</a></div>
+                            <div class="col-lg-5 col-md-8"><a href="{{ route('download.foto.akte', $data->foto_akte) }}" class="btn btn-primary">Download</a></div>
                           </div>
                           <div class="row mt-3">
                             <div class="col-lg-7 col-md-4 label d-flex align-items-center">Rapot</div>
-                            <div class="col-lg-5 col-md-8"><a href="/img/foto_rapot/{{ $data->foto_rapot }}" download="{{ $data->foto_rapot }}" class="btn btn-primary">Download</a></div>
+                            <div class="col-lg-5 col-md-8"><a href="{{ route('download.rapot', $data->foto_rapot) }}" class="btn btn-primary">Download</a></div>
                           </div>
                           <div class="row mt-3">
                             <div class="col-lg-7 col-md-4 label d-flex align-items-center">Ijazah</div>
-                            <div class="col-lg-5 col-md-8"><a href="/img/foto_ijazah/{{ $data->foto_ijazah }}" download="{{ $data->foto_ijazah }}" class="btn btn-primary">Download</a></div>
+                            <div class="col-lg-5 col-md-8"><a href="{{ route('download.ijazah', $data->foto_ijazah) }}" class="btn btn-primary">Download</a></div>
                           </div>
                         </div>
                       </div>

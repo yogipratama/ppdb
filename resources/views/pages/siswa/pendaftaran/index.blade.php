@@ -78,7 +78,7 @@
           
                             <div class="row">
                               <div class="col-lg-4 col-md-4 label">Tanggal Lahir</div>
-                              <div class="col-lg-8 col-md-8">{{ $data->tanggal_lahir}}</div>
+                              <div class="col-lg-8 col-md-8">{{ \Carbon\Carbon::create($data->tanggal_lahir)->translatedFormat('d F Y') }}</div>
                             </div>
           
                             <div class="row">
@@ -180,7 +180,7 @@
                     <div class="card">
                       <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
           
-                        <img src="{{ asset('img/foto_siswa/'.$data->foto) }}" alt="Profile" class="rounded">
+                        <img src="{{ asset('img/foto_siswa/'. $data->foto) }}" alt="Profile" class="rounded">
                         <h2>{{ $data->nama_siswa}}</h2>
                         <h3>{{ $data->nisn}}</h3>
                       </div>
